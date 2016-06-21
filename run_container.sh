@@ -6,6 +6,8 @@
 # Install dependencies
 dnf remove -y vim-minimal
 dnf install -y \
+    tar \
+    which \
     git \
     ansible \
     python-pip \
