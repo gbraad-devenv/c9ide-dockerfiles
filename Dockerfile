@@ -6,4 +6,10 @@ MAINTAINER Gerard Braad <me@gbraad.nl>
 ADD run_container.sh /tmp/
 RUN /tmp/run_container.sh
 
-CMD ["/bin/bash"]
+RUN mkdir /workspace
+VOLUME /workspace
+
+EXPOSE 8181
+
+ADD run_usercommand.sh /tmp/
+CMD ["/tmp/run_usercommand.sh"]
