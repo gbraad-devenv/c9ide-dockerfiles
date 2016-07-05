@@ -4,7 +4,7 @@ build_image:
   - docker:dind
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/gbraad/dev .
-    - docker push registry.gitlab.com/gbraad/dev:latest
+    - docker build -t registry.gitlab.com/gbraad/c9ide .
+    - docker push registry.gitlab.com/gbraad/c9ide:latest
   only:
     - master
