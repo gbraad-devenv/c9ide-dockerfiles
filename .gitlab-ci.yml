@@ -1,10 +1,21 @@
-build_image:
+build_fedora:
   image: docker:git
   services:
   - docker:dind
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/gbraad/c9ide .
-    - docker push registry.gitlab.com/gbraad/c9ide:latest
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f24 ./fedora
+    - docker push registry.gitlab.com/gbraad/c9ide:f24
+  only:
+    - master
+
+build_centos:
+  image: docker:git
+  services:
+  - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/gbraad/c9ide:c7 ./centos
+    - docker push registry.gitlab.com/gbraad/c9ide:c7
   only:
     - master
