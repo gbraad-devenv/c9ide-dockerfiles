@@ -1,4 +1,4 @@
-FROM fedora:24
+FROM registry.gitlab.com/gbraad/devenv:f24
 MAINTAINER Gerard Braad <me@gbraad.nl>
 
 # Use a script to configure the container. This way we can
@@ -6,7 +6,7 @@ MAINTAINER Gerard Braad <me@gbraad.nl>
 ADD run_container.sh /tmp/
 RUN /tmp/run_container.sh
 
-RUN mkdir /workspace
+RUN mkdir -p /workspace
 VOLUME /workspace
 
 EXPOSE 8181
