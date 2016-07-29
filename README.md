@@ -9,20 +9,20 @@ Docker container containing C9 SDK, based of [devenv](https://gitlab.com/gbraad/
 
 ## Registries
 
+### GitLab
+
+Available as an automated builds are available at the GitLab [container registry](https://gitlab.com/gbraad/c9ide/container_registry).
+
+  * Fedora 24 (devenv): `docker pull registry.gitlab.com/gbraad/c9ide:f24`
+  * CentOS 7 (devenv): `docker pull registry.gitlab.com/gbraad/c9ide:c7`
+
+
 ### Docker hub
 
-Available as an automated build from the [Docker registry](https://hub.docker.com/r/gbraad/c9ide/).
+An alternative automated build is available at the [Docker registry](https://hub.docker.com/r/gbraad/c9ide/).
 
   * Fedora 24 (devenv): `docker pull gbraad/c9ide:f24`
   * CentOS 7 (devenv): `docker pull gbraad/c9ide:c7`
-
-
-### GitLab
-
-Alternative automated builds are available at a GitLab [container registry](https://gitlab.com/gbraad/c9ide/container_registry).
-
-  * Fedora 24 (devenv): `docker pull registry.gitlab.com/gbraad/devenv:f24`
-  * CentOS 7 (devenv): `docker pull registry.gitlab.com/gbraad/c9ide:c7`
 
 
 Usage
@@ -41,7 +41,7 @@ $ alias c9ide='docker run -it --rm -v `pwd`:/workspace registry.gitlab.com/gbraa
 ```
 
 
-### Invoke devenv
+### Invoke C9 IDE
 
 ```
 $ cd ~/Projects/[something]
