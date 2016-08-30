@@ -8,6 +8,7 @@ RUN /tmp/run_container.sh
 
 RUN mkdir -p /workspace
 VOLUME /workspace
+WORKDIR /workspace
 
 EXPOSE 8181
 
