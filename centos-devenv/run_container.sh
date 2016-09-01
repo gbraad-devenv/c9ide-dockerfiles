@@ -4,10 +4,7 @@
 # single docker layer.
 
 # Install dependencies
-yum install -y epel-release
 yum install -y \
-    curl \
-    ansible \
     tar \
     which
 

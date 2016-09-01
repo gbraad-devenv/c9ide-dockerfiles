@@ -5,6 +5,9 @@
 
 # Install dependencies
 dnf install -y \
+    curl \
+    python2-dnf \
+    ansible \
     tar \
     which
 

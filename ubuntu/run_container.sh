@@ -4,12 +4,11 @@
 # single docker layer.
 
 # Install dependencies
-yum install -y epel-release
-yum install -y \
+apt-get update
+apt-get install -y \
+    python \
     curl \
-    ansible \
-    tar \
-    which
+    ansible
 
 # Ansible deployment
 cd /tmp
@@ -17,4 +16,8 @@ curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/insta
 ansible-playbook install.yml
 
 # Clean up
-yum clean all
+apt-get remove -y --auto-remove \
+    curl \
+    ansible 
+apt-get clean
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache

@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/gbraad/centos:7
+FROM registry.gitlab.com/gbraad/ubuntu:xenial
 MAINTAINER Gerard Braad <me@gbraad.nl>
 
 # Use a script to configure the container. This way we can

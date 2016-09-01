@@ -4,10 +4,7 @@
 # single docker layer.
 
 # Install dependencies
-yum install -y epel-release
-yum install -y \
-    curl \
-    ansible \
+dnf install -y \
     tar \
     which
 
@@ -17,4 +14,4 @@ curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/insta
 ansible-playbook install.yml
 
 # Clean up
-yum clean all
+dnf clean all

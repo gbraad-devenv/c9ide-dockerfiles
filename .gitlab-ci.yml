@@ -9,6 +9,17 @@ build_fedora:
   only:
     - master
 
+build_fedora_devenv:
+  image: docker:git
+  services:
+  - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f24-devenv ./fedora-devenv
+    - docker push registry.gitlab.com/gbraad/c9ide:f24-devenv
+  only:
+    - master
+
 build_centos:
   image: docker:git
   services:
@@ -19,3 +30,26 @@ build_centos:
     - docker push registry.gitlab.com/gbraad/c9ide:c7
   only:
     - master
+
+build_centos_devenv:
+  image: docker:git
+  services:
+  - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/gbraad/c9ide:c7-devenv ./centos-devenv
+    - docker push registry.gitlab.com/gbraad/c9ide:c7-devenv
+  only:
+    - master
+
+build_ubuntu:
+  image: docker:git
+  services:
+  - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/gbraad/c9ide:u1604 ./ubuntu
+    - docker push registry.gitlab.com/gbraad/c9ide:u1604
+  only:
+    - master
+
