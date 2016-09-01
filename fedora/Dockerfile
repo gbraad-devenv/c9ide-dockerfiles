@@ -12,5 +12,8 @@ WORKDIR /workspace
 
 EXPOSE 8181
 
+ENV USERNAME ""
+ENV PASSWORD ""
+
 ADD run_usercommand.sh /tmp/
 CMD ["/tmp/run_usercommand.sh"]
