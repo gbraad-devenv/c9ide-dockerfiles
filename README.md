@@ -13,16 +13,38 @@ Docker container containing C9 SDK, based of [devenv](https://gitlab.com/gbraad/
 
 Available as an automated builds are available at the GitLab [container registry](https://gitlab.com/gbraad/c9ide/container_registry).
 
-  * Fedora 24 (devenv): `docker pull registry.gitlab.com/gbraad/c9ide:f24`
-  * CentOS 7 (devenv): `docker pull registry.gitlab.com/gbraad/c9ide:c7`
+  * Fedora 24:  
+    `docker pull registry.gitlab.com/gbraad/c9ide:f24`
+  * CentOS 7:  
+    `docker pull registry.gitlab.com/gbraad/c9ide:c7`
+  * Ubuntu 16.04 (xenial):  
+    `docker pull registry.gitlab.com/gbraad/c9ide:u1604`
+
+The following images are based on my [devenv](htttp://github.com/gbraad/devenv) environment.
+
+  * Fedora 24 (devenv):  
+    `docker pull registry.gitlab.com/gbraad/c9ide:f24-devenv`
+  * CentOS 7 (devenv):  
+    `docker pull registry.gitlab.com/gbraad/c9ide:c7-devenv`
 
 
 ### Docker hub
 
 An alternative automated build is available at the [Docker registry](https://hub.docker.com/r/gbraad/c9ide/).
 
-  * Fedora 24 (devenv): `docker pull gbraad/c9ide:f24`
-  * CentOS 7 (devenv): `docker pull gbraad/c9ide:c7`
+  * Fedora 24:  
+    `docker pull gbraad/c9ide:f24`
+  * CentOS 7:  
+    `docker pull gbraad/c9ide:c7`
+  * Ubuntu 16.04 (xenial):  
+    `docker pull gbraad/c9ide:c7`
+
+The following images are based on my [devenv](htttp://github.com/gbraad/devenv) environment.
+
+  * Fedora 24 (devenv):  
+    `docker pull gbraad/c9ide:f24-devenv`
+  * CentOS 7 (devenv):  
+    `docker pull gbraad/c9ide:c7-devenv`
 
 
 Usage
@@ -31,13 +53,13 @@ Usage
 ### Setup an alias
 
 ```
-$ alias c9ide='docker run -it --rm -v `pwd`:/workspace gbraad/c9ide:f24'
+$ alias c9ide='docker run -it --rm -v `pwd`:/workspace gbraad/c9ide:u1604'
 ```
 
 or
 
 ```
-$ alias c9ide='docker run -it --rm -v `pwd`:/workspace registry.gitlab.com/gbraad/c9ide:f24'
+$ alias c9ide='docker run -it --rm -v `pwd`:/workspace registry.gitlab.com/gbraad/c9ide:u1604'
 ```
 
 
