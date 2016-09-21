@@ -8,12 +8,21 @@ apt-get update
 apt-get install -y \
     python \
     curl \
-    ansible
+    ansible \
+    sudo
+
+# Add user
+adduser --disabled-password --gecos '' user
+adduser user sudo
+echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Ansible deployment
-cd /tmp
-curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/install-c9sdk.yml -o install.yml
-ansible-playbook install.yml
+curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/install-c9sdk.yml -o /tmp/install.yml
+su - user -c "ansible-playbook /tmp/install.yml"
+
+# Create work directory
+mkdir -p /workspace
+chown user /workspace
 
 # Clean up
 apt-get remove -y --auto-remove \
