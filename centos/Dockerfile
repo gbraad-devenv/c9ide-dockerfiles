@@ -16,4 +16,6 @@ ENV USERNAME ""
 ENV PASSWORD ""
 
 ADD run_usercommand.sh /tmp/
-CMD ["su", "-", "user", "-c", "/tmp/run_usercommand.sh"]
+
+USER user
+CMD ["/tmp/run_usercommand.sh"]
