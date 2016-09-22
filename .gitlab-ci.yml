@@ -1,55 +1,63 @@
-build_fedora:
-  image: docker:git
-  services:
+image: docker:git
+services:
   - docker:dind
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker login -e ma@gbraad.nl -u gbraad -p $DOCKER_PASSWORD
+
+stages:
+  - build
+  - sync
+
+build_fedora:
+  stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/gbraad/c9ide:f24 ./fedora
     - docker push registry.gitlab.com/gbraad/c9ide:f24
-  only:
-    - master
+
+clone_fedora:
+  stage: sync
+  script:
+    - docker pull registry.gitlab.com/gbraad/c9ide:f24
+    - docker tag registry.gitlab.com/gbraad/c9ide:f24 gbraad/c9ide:f24
+    - docker push gbraad/c9ide:f24
 
 build_fedora_devenv:
-  image: docker:git
-  services:
-  - docker:dind
+  stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/gbraad/c9ide:f24-devenv ./fedora-devenv
     - docker push registry.gitlab.com/gbraad/c9ide:f24-devenv
-  only:
-    - master
 
 build_centos:
-  image: docker:git
-  services:
-  - docker:dind
+  stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/gbraad/c9ide:c7 ./centos
     - docker push registry.gitlab.com/gbraad/c9ide:c7
-  only:
-    - master
+
+clone_centos:
+  stage: sync
+  script:
+    - docker pull registry.gitlab.com/gbraad/c9ide:c7
+    - docker tag registry.gitlab.com/gbraad/c9ide:c7 gbraad/c9ide:c7
+    - docker push gbraad/c9ide:c7
 
 build_centos_devenv:
-  image: docker:git
-  services:
-  - docker:dind
+  stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/gbraad/c9ide:c7-devenv ./centos-devenv
     - docker push registry.gitlab.com/gbraad/c9ide:c7-devenv
-  only:
-    - master
 
 build_ubuntu:
-  image: docker:git
-  services:
-  - docker:dind
+  stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
     - docker build -t registry.gitlab.com/gbraad/c9ide:u1604 ./ubuntu
     - docker push registry.gitlab.com/gbraad/c9ide:u1604
-  only:
-    - master
+
+clone_ubuntu:
+  stage: sync
+  script:
+    - docker pull registry.gitlab.com/gbraad/c9ide:u1604
+    - docker tag registry.gitlab.com/gbraad/c9ide:u1604 gbraad/c9ide:u1604
+    - docker push gbraad/c9ide:u1604
 
