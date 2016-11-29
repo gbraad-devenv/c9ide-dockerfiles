@@ -10,7 +10,9 @@ dnf install -y \
     ansible \
     tar \
     which \
-    sudo
+    sudo \
+    nss_wrapper \
+    gettext
 
 # Create user
 adduser user -u 1000 -g 0 -r -m -d /home/user/ -c "Default Application User" -l

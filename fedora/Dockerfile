@@ -16,7 +16,11 @@ ENV USERNAME ""
 ENV PASSWORD ""
 ENV HOME "/home/user/"
 
+# RUN echo "userme" | passwd user --stdin
+# RUN echo "rootme" | passwd root --stdin
+
+ADD passwd_template /tmp/
 ADD run_usercommand.sh /tmp/
 
-USER user
+USER 1000
 CMD ["/tmp/run_usercommand.sh"]
