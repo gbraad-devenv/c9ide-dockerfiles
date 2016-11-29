@@ -13,7 +13,7 @@ dnf install -y \
     sudo
 
 # Create user
-adduser user
+adduser user -u 1000 -g 0 -r -m -d /home/user/ -c "Default Application User" -l
 echo "user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user
 chmod 0440 /etc/sudoers.d/user
 
@@ -23,7 +23,13 @@ su - user -c "ansible-playbook /tmp/install.yml"
 
 ## Create work directory
 mkdir -p /workspace
-chown user:user /workspace
+chown user:root /workspace
+
+# allow to run on openshift
+chown -R user:root /opt/c9sdk
+chmod -R g+rw /opt/c9sdk
+chmod -R g+rw /home/user
+find /home/user -type d -exec chmod g+x {} +
 
 # Clean up
 dnf clean all

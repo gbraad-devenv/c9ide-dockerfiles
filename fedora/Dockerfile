@@ -14,6 +14,7 @@ EXPOSE 8181
 
 ENV USERNAME ""
 ENV PASSWORD ""
+ENV HOME "/home/user/"
 
 ADD run_usercommand.sh /tmp/
 
