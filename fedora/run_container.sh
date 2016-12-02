@@ -25,6 +25,7 @@ curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/insta
 su - user -c "ansible-playbook /tmp/install.yml"
 
 # Allow user installs in /opt as root
+chmod g+rw /opt
 chgrp root /opt
 
 # Create work directory
