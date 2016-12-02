@@ -6,6 +6,7 @@
 # Install dependencies
 dnf install -y \
     curl \
+    wget \
     python2-dnf \
     ansible \
     tar \
@@ -23,7 +24,10 @@ chmod 0440 /etc/sudoers.d/user
 curl -sSL https://github.com/gbraad/ansible-playbooks/raw/master/playbooks/install-c9sdk.yml -o /tmp/install.yml
 su - user -c "ansible-playbook /tmp/install.yml"
 
-## Create work directory
+# Allow user installs in /opt as root
+chgrp root /opt
+
+# Create work directory
 mkdir -p /workspace
 chown user:root /workspace
 
