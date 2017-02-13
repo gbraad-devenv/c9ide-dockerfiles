@@ -7,6 +7,9 @@ Cloud9 IDE SDK
 Docker container containing C9 SDK, based of [devenv](https://gitlab.com/gbraad/devenv)
 
 
+On my [blog](https://gbraad.nl/blog/) I wrote an article about [Setting up a powerful self-hosted IDE in the cloud](http://gbraad.nl/blog/setting-up-a-powerful-self-hosted-ide-in-the-cloud.html) which describe the use of these images.
+
+
 ## Registries
 
 ### GitLab
@@ -50,7 +53,9 @@ The following images are based on my [devenv](htttp://github.com/gbraad/devenv) 
 Usage
 -----
 
-### Setup an alias
+###  Running on Docker
+
+#### Setup an alias
 
 ```
 $ alias c9ide='docker run -it --rm -v `pwd`:/workspace gbraad/c9ide:u1604'
@@ -62,8 +67,7 @@ or
 $ alias c9ide='docker run -it --rm -v `pwd`:/workspace registry.gitlab.com/gbraad/c9ide:u1604'
 ```
 
-
-### Invoke C9 IDE
+#### Invoke C9 IDE
 
 ```
 $ cd ~/Projects/[something]
@@ -72,6 +76,17 @@ $ c9ide
 
 and open your browser to [localhost:8181](http://localhost:8181/)
 
+
+### Running on OpenShift
+This is currently only supported for the Fedora 25-based image.
+
+Note: restrictions apply, as the container doesn't run as `root` (UID: 0) without changing settings. Due to this you can not install new packages. However, you can write in `/opt/`.
+
+```
+$ oc new-app gbraad/c9ide:f25 --name=c9ide
+```
+
+Now you can create a route and open the application from the browser.
 
 
 Authors
