@@ -4,7 +4,7 @@ services:
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-  - docker login -e ma@gbraad.nl -u gbraad -p $DOCKER_PASSWORD
+  - docker login -u gbraad -p $DOCKER_PASSWORD
 
 stages:
   - build
@@ -13,21 +13,21 @@ stages:
 build_fedora:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/gbraad/c9ide:f25 ./fedora
-    - docker push registry.gitlab.com/gbraad/c9ide:f25
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f26 ./fedora
+    - docker push registry.gitlab.com/gbraad/c9ide:f26
 
 clone_fedora:
   stage: sync
   script:
-    - docker pull registry.gitlab.com/gbraad/c9ide:f25
-    - docker tag registry.gitlab.com/gbraad/c9ide:f25 gbraad/c9ide:f25
-    - docker push gbraad/c9ide:f25
+    - docker pull registry.gitlab.com/gbraad/c9ide:f26
+    - docker tag registry.gitlab.com/gbraad/c9ide:f26 gbraad/c9ide:f26
+    - docker push gbraad/c9ide:f26
 
 build_fedora_devenv:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/gbraad/c9ide:f24-devenv ./fedora-devenv
-    - docker push registry.gitlab.com/gbraad/c9ide:f24-devenv
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f25-devenv ./fedora-devenv
+    - docker push registry.gitlab.com/gbraad/c9ide:f25-devenv
 
 build_centos:
   stage: build
