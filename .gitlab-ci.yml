@@ -26,8 +26,8 @@ clone_fedora:
 build_fedora_devenv:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/gbraad/c9ide:f25-devenv ./fedora-devenv
-    - docker push registry.gitlab.com/gbraad/c9ide:f25-devenv
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f26-devenv ./fedora-devenv
+    - docker push registry.gitlab.com/gbraad/c9ide:f26-devenv
 
 build_centos:
   stage: build

@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/gbraad/devenv:f25
+FROM registry.gitlab.com/gbraad/devenv:f26
 MAINTAINER Gerard Braad <me@gbraad.nl>
 
 # Use a script to configure the container. This way we can
