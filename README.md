@@ -4,8 +4,7 @@ Cloud9 IDE SDK
 !["Prompt"](https://raw.githubusercontent.com/gbraad/assets/gh-pages/icons/prompt-icon-64.png)
 
 
-Docker container containing C9 SDK, based of [devenv](https://gitlab.com/gbraad/devenv)
-
+Note: please check GitLab or Docker Hub for the current tags
 
 On my [blog](https://gbraad.nl/blog/) I wrote an article about [Setting up a powerful self-hosted IDE in the cloud](http://gbraad.nl/blog/setting-up-a-powerful-self-hosted-ide-in-the-cloud.html) which describe the use of these images.
 
@@ -16,16 +15,16 @@ On my [blog](https://gbraad.nl/blog/) I wrote an article about [Setting up a pow
 
 Available as an automated builds are available at the GitLab [container registry](https://gitlab.com/gbraad/c9ide/container_registry).
 
-  * Fedora 24:  
-    `docker pull registry.gitlab.com/gbraad/c9ide:f24`
-  * CentOS 7:  
+  * Fedora:  
+    `docker pull registry.gitlab.com/gbraad/c9ide:f24`, `f25`, `f26`, `f27`
+  * CentOS:  
     `docker pull registry.gitlab.com/gbraad/c9ide:c7`
   * Ubuntu 16.04 (xenial):  
     `docker pull registry.gitlab.com/gbraad/c9ide:u1604`
 
 The following images are based on my [devenv](htttp://github.com/gbraad/devenv) environment.
 
-  * Fedora 24 (devenv):  
+  * Fedora (devenv):  
     `docker pull registry.gitlab.com/gbraad/c9ide:f24-devenv`
   * CentOS 7 (devenv):  
     `docker pull registry.gitlab.com/gbraad/c9ide:c7-devenv`
@@ -35,8 +34,8 @@ The following images are based on my [devenv](htttp://github.com/gbraad/devenv) 
 
 An alternative automated build is available at the [Docker registry](https://hub.docker.com/r/gbraad/c9ide/).
 
-  * Fedora 24:  
-    `docker pull gbraad/c9ide:f24`
+  * Fedora:  
+    `docker pull gbraad/c9ide:f24`, f25`, `f26`, `f27`
   * CentOS 7:  
     `docker pull gbraad/c9ide:c7`
   * Ubuntu 16.04 (xenial):  
@@ -44,7 +43,7 @@ An alternative automated build is available at the [Docker registry](https://hub
 
 The following images are based on my [devenv](htttp://github.com/gbraad/devenv) environment.
 
-  * Fedora 24 (devenv):  
+  * Fedora (devenv):  
     `docker pull gbraad/c9ide:f24-devenv`
   * CentOS 7 (devenv):  
     `docker pull gbraad/c9ide:c7-devenv`
@@ -95,3 +94,4 @@ Authors
 | [!["Gerard Braad"](http://gravatar.com/avatar/e466994eea3c2a1672564e45aca844d0.png?s=60)](http://gbraad.nl "Gerard Braad <me@gbraad.nl>") |
 |---|
 | [@gbraad](https://twitter.com/gbraad)  |
+
