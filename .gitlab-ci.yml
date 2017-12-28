@@ -13,14 +13,14 @@ stages:
 build_fedora:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/gbraad/c9ide:f26 ./fedora
-    - docker push registry.gitlab.com/gbraad/c9ide:f26
+    - docker build -t registry.gitlab.com/gbraad/c9ide:f27 ./fedora
+    - docker push registry.gitlab.com/gbraad/c9ide:f27
 
 clone_fedora:
   stage: sync
   script:
-    - docker pull registry.gitlab.com/gbraad/c9ide:f26
-    - docker tag registry.gitlab.com/gbraad/c9ide:f26 gbraad/c9ide:f26
+    - docker pull registry.gitlab.com/gbraad/c9ide:f27
+    - docker tag registry.gitlab.com/gbraad/c9ide:f27 gbraad/c9ide:f27
     - docker push gbraad/c9ide:f26
 
 build_fedora_devenv:
