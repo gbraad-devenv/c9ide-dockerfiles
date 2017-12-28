@@ -77,8 +77,6 @@ and open your browser to [localhost:8181](http://localhost:8181/)
 
 
 ### Running on OpenShift
-This is currently only supported for the Fedora 25-based image.
-
 Note: restrictions apply, as the container doesn't run as `root` (UID: 0) without changing settings. Due to this you can not install new packages. However, you can write in `/opt/`.
 
 ```
