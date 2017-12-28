@@ -35,7 +35,7 @@ The following images are based on my [devenv](htttp://github.com/gbraad/devenv) 
 An alternative automated build is available at the [Docker registry](https://hub.docker.com/r/gbraad/c9ide/).
 
   * Fedora:  
-    `docker pull gbraad/c9ide:f24`, f25`, `f26`, `f27`
+    `docker pull gbraad/c9ide:f24`, `f25`, `f26`, `f27`
   * CentOS 7:  
     `docker pull gbraad/c9ide:c7`
   * Ubuntu 16.04 (xenial):  
